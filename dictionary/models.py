@@ -1,14 +1,17 @@
 from django.db import models
 
-class User(models.Model):
-    user_name = models.CharField(max_length=60)
-    email = models.CharField(max_length=60)
-    # password
-    use_source = models.BooleanField(default=True)
-    use_favorites = models.BooleanField(default=True)
+# class User(models.Model):
+#     user_name = models.CharField(max_length=60)
+#     email = models.CharField(max_length=60)
+#     # password
+#     use_source = models.BooleanField(default=True)
+#     use_favorites = models.BooleanField(default=True)
 
 class Tag(models.Model):
     name = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.name
 
 class Entry(models.Model):
     word = models.CharField(max_length=120)
@@ -16,5 +19,8 @@ class Entry(models.Model):
     source = models.TextField(max_length=5000)
     favorite = models.BooleanField(default=False)
     private = models.BooleanField(default=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
+
+    def __str__(self):
+        return self.word
