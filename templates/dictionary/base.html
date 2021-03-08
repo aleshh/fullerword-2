@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fullerword</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        border-bottom: 1px solid black;
+        padding: 4px 24px;
+      }
+      h1 {
+        font-size: 1rem;
+        display: inline-block;
+      }
+      a {
+        color: green
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      ul.topNav {
+        display: inline-block;
+        padding-left: 24px;
+      }
+      ul.topNav > li {
+        display: inline-block;
+      }
+      .content {
+        padding: 8px 24px;
+      }
+    </style>
+  </head>
+  <body>
+  <header>
+    <h1>
+      Fullerword:
+      {% block title %}Default title{% endblock %}
+    </h1>
+    <ul class="topNav">
+      <li><a href="/home">Home</a></li>
+      <li><a href="/">Word list</a></li>
+    </ul>
+  </header>
+  <section class="content">
+    {% block content %}{% endblock %}
+  </section>
+  </body>
+</html>
