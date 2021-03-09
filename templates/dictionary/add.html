@@ -1,0 +1,15 @@
+{% extends 'dictionary/base.html' %}
+
+{% block title %}Add a word{% endblock %}
+
+{% block content %}
+
+<p>New Word</p>
+
+<form method="post" action="/create/">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" name="save">Add word</button>
+</form>
+
+{% endblock %}
