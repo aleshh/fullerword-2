@@ -6,7 +6,7 @@
 
 <p>New Word</p>
 
-<form method="post" action="/create/">
+<form method="post" action="/add/">
     {% csrf_token %}
     {{form}}
     <button type="submit" name="save">Add word</button>

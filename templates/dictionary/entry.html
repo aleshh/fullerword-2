@@ -4,6 +4,14 @@
 
 {% block content %}
 
-<p>Word: {{ word }}</p>
+<h2>{{ entry.word }}</h2>
+<p>{{ entry.definition }}</p>
+<p>
+  <form method="post" action="#">
+  {% csrf_token %}
+    <button type="submit" name="edit" value="edit">Edit</button>
+    <button type="submit" name="delete" value="delete">Delete</button>
+  </form>
+</p>
 
 {% endblock %}

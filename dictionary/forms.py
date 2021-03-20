@@ -2,6 +2,7 @@ from django import forms
 
 class CreateNewEntry(forms.Form):
     word = forms.CharField(label="Word", max_length=200)
+    definition = forms.CharField(label="Definition", max_length=1500, widget=forms.Textarea)
 
 
 
