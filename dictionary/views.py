@@ -29,10 +29,15 @@ def home(request):
     return render(request, 'dictionary/home.html', {})
 
 
-def entry(request, id):
+def edit(request, id):
     if request.POST.get("delete"):
         Entry.objects.filter(id=id).delete()
-        return HttpResponseRedirect('/')
 
+    print('>>> views:edit redirecting to entry')
+
+    return HttpResponseRedirect('/%s' % id)
+
+
+def entry(request, id):
     entry = Entry.objects.get(id=id)
     return render(request, 'dictionary/entry.html', {"entry": entry})
