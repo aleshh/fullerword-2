@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Entry, Tag
-from .forms import CreateNewEntry
+from .forms import EntryForm
 
 
 def list(request):
@@ -11,7 +11,7 @@ def list(request):
 
 def add(request):
     if request.method == "POST":
-        form = CreateNewEntry(request.POST)
+        form = EntryForm(request.POST)
 
         if form.is_valid():
             entry = Entry()
@@ -21,7 +21,7 @@ def add(request):
 
         return HttpResponseRedirect('/%i' % entry.id)
     else:
-        form = CreateNewEntry()
+        form = EntryForm()
     return render(request, 'dictionary/add.html', {"form": form})
 
 
@@ -31,7 +31,19 @@ def home(request):
 
 def edit(request, id):
     if request.POST.get("delete"):
+        print(Entry.objects.filter(id=id))
         Entry.objects.filter(id=id).delete()
+
+        return HttpResponseRedirect('/')
+
+    if request.POST.get("edit"):
+        print('> Edit')
+        entry = Entry.objects.get(id=id)
+        # form = EntryForm(entry)
+
+        # return render(request, 'dictionary/add.html', {"form": form})
+
+
 
     print('>>> views:edit redirecting to entry')
 
@@ -39,5 +51,6 @@ def edit(request, id):
 
 
 def entry(request, id):
+    print('> Entry')
     entry = Entry.objects.get(id=id)
     return render(request, 'dictionary/entry.html', {"entry": entry})

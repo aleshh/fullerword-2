@@ -6,7 +6,11 @@
 
 <ul>
 {% for entry in entries %}
-<li><a href="{{entry.id}}">{{entry.word}}</a>: {{entry.definition}}</li>
+<li>
+  <a href="{{entry.id}}"><strong>{{entry.word}}</strong></a>:
+  {{entry.definition}}
+  <hr>
+</li>
 {% endfor %}
 </ul>
 {% endblock %}

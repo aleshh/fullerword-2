@@ -1,9 +1,18 @@
 from django import forms
+from .models import Entry
 
-class CreateNewEntry(forms.Form):
+class EntryForm(forms.Form):
     word = forms.CharField(label="Word", max_length=200)
-    definition = forms.CharField(label="Definition", max_length=1500, widget=forms.Textarea)
+    definition = forms.CharField(
+        label="Definition",
+        max_length=1500,
+        widget=forms.Textarea
+    )
 
+# # should be identical to above
+# class EntryForm(forms.Form):
+#     model = Entry
+#     fields = ['word', 'definition']
 
 
     # word = models.CharField(max_length=120)

@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fullerword</title>
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Halant:wght@400;500&display=swap');
+      html {
+        font-size: 22px;
+        line-height: 1.4;
+        font-family: 'Halant', Georgia;
+      }
       body {
         margin: 0;
         padding: 0;
+        background: #efe;
       }
       header {
         border-bottom: 1px solid black;
@@ -16,10 +23,14 @@
       }
       h1 {
         font-size: 1rem;
+        font-weight: 500;
         display: inline-block;
       }
+      strong {
+        font-weight: 500;
+      }
       a {
-        color: green
+        color: #700;
       }
       a:hover {
         text-decoration: none;
@@ -34,6 +45,10 @@
       }
       ul.topNav > li {
         display: inline-block;
+      }
+      hr {
+        border-style: none;
+        border-bottom: 1px solid silver;
       }
       .content {
         padding: 8px 24px;
